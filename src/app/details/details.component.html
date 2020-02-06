@@ -1,0 +1,101 @@
+<section class="details">
+<div class="container" *ngIf="details;else noData">
+    <div>
+        <h1>{{details.title}} </h1>
+      
+        <p class="auther"> By   <span *ngIf="details.author;else noAuther">{{details.author}}</span>
+            <ng-template #noAuther><span>No Auther Name</span> </ng-template>
+            Published on {{details.publishedAt | date}}. </p>
+    </div>
+    <h5>{{details.name}} </h5>
+    <hr>
+    <div class="row">
+        <div class="col-md-3 listed">
+           <div class="shares">
+                <div class="items shar">
+                    <h1>23</h1>
+                    <p class="title" style="color:#333">shares</p>
+                </div>
+                <div class="items">
+                    <p><i class="fa fa-envelope"></i> Email </p>
+                </div>
+                <div class="items">
+                    <p><i class="fa fa-facebook"></i> FaceBook </p>
+                </div>
+                <div class="items">
+                    <p><i class="fa fa-twitter"></i> Twitter </p>
+                </div>
+                <div class="items">
+                    <p><i class="fa fa-share"></i> More </p>
+                </div>
+           </div>
+        </div>
+        <div class="col-md-9">
+            <div class="body">
+                <img  *ngIf="details.urlToImage" [src]="details.urlToImage">
+                <p class="desc">
+                    {{details.content}}
+                </p>
+              <ng-container *ngFor="let ss of arr;let i=index">
+                <h3 *ngIf="i==0">Comments</h3>
+              <ng-container *ngIf="index == ss.index">
+                <div class="comments" >
+                    <div class="row">
+                        <div class="col-lg-1">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="col-lg-11">
+                            <div>
+                                <span class="name">{{ss.data.name}}</span>
+                                <span> {{ss.date | date:'MMM d, y, h:mm a'}} </span>                                
+                                <span>Reply</span>
+                            </div>
+                            <p>
+                               {{ss.data.message}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            </ng-container>
+                <h3>Join the Conversation</h3>
+                <div class="Conversation"> 
+                    <form  #f="ngForm"  (ngSubmit)="AddComents(f)"> 
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Name"
+                            ngModel #name="ngModel" required minlength="7">
+                        </div>
+                        <div *ngIf="name.invalid && name.touched">
+                            <p *ngIf="name.errors?.minlength">  min Length 7 Your Enter {{name.errors.minlength.actualLength}}</p>
+                            <p *ngIf="name.errors?.required">Name Is Required </p>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email"
+                            ngModel #email="ngModel" required email>
+                        </div>
+                        <p *ngIf="email.touched && email.errors?.required">Email Is Required</p>
+                        <p *ngIf="email.touched &&  email.errors?.email">Wrong Email Format</p>
+
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" placeholder="Message"
+                            ngModel #message="ngModel" required minlength="15"></textarea>
+                        </div>
+                        <div *ngIf="message.invalid && message.touched">
+                            <p *ngIf="message.errors?.minlength">  min Length 15 Your Enter {{message.errors.minlength.actualLength}}</p>
+                            <p *ngIf="message.errors?.required">Message Is Required </p>
+                        </div>
+
+                        <button type="submit"  [disabled]="f.invalid" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #noData>
+<h2 style="text-align: center;margin-top: 50px;"><span style="color:red">404</span> No Data In JSON that much this ID </h2>
+</ng-template>
+</section>
+
+<div class="topbtn">   <i class="fa fa-arrow-up"></i> </div>

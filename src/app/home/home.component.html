@@ -1,0 +1,303 @@
+<section class="last-news">
+    <div class="container">
+        <h2>Latest News</h2>
+    
+        <div class="row">
+            <div class="col-md-8 ">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <ng-container *ngFor="let r of details.articles;let i=index">
+                        <div class="first-article" *ngIf="i==0">
+                            <a [routerLink]="['/details/',i]"><img [src]="r.urlToImage" alt=""></a>
+                            <span class="firstSpan">{{r.source.name}}</span>
+                            <p class="question">{{r.title}}</p>
+                            <p class="desc"> {{r.description | describePipe:150}}</p>
+                            <p class="author">By <span *ngIf="r.author;else noAuther">{{r.author}}</span>
+                                <ng-template #noAuther><span>No Auther Name</span> </ng-template> </p> 
+                            <div class="share">
+                                <i class="fa fa-share"></i> <span>349</span>
+                                <i class="fa fa-comment"></i> <span>15</span>
+                            </div>
+                        </div>
+                     </ng-container>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="mostArticle">
+                            <ng-container *ngFor="let r of details.articles;let i=index">
+                                <div class="items" *ngIf="i>0 && i<3">
+                                    <a [routerLink]="['/details/',i]"> <img [src]="r.urlToImage" alt=""></a>
+                                    <span class="firstSpan">{{r.source.name}} </span>
+                                    <p class="desc">  {{r.description | describePipe}}</p>
+                                    <div class="share">
+                                        <i class="fa fa-share"></i> <span>12</span>
+                                        <i class="fa fa-comment"></i> <span>15</span>
+                                    </div>
+                                   
+                                </div>
+                           </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="row rowEdit">
+                    <div class="container-fluid editors">
+                        <h3>Editors Picks</h3>
+                        <ng-container *ngFor="let r of details.articles;let i=index">
+                            <div class="row sdd" *ngIf="i>2 && i< details.articles.length-1">
+                                <div class="col-md-3">
+                                    <div class="imageLast">
+                                        <a [routerLink]="['/details/',i]"><img [src]="r.urlToImage" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="body">
+                                        <span class="firstSpan">{{r.source.name}}</span>
+                                        <p class="question">{{r.title}}</p>
+                                        <p class="desc">{{r.description |describePipe}}</p>
+                                       <p class="author">By <span *ngIf="r.author;else noAuther">{{r.author}}</span>
+                                         <ng-template #noAuther><span>No Auther Name</span> </ng-template> - {{r.publishedAt | timeAgo}} </p> 
+                                    </div>
+                                </div>
+                                <hr >
+                            </div>
+                            <div class="row" *ngIf="i == details.totalResults-1">
+                                <div class="col-md-3">
+                                    <div class="imageLast">
+                                        <a [routerLink]="['/details/',i]"><img [src]="r.urlToImage" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="body">
+                                        <span class="firstSpan">{{r.source.name}}</span>
+                                        <p class="question">{{r.title}}</p>
+                                        <p class="desc">{{r.description | describePipe}}</p>
+                                       <p class="author">By <span *ngIf="r.author;else noAuther">{{r.author}}</span>
+                                         <ng-template #noAuther><span>No Auther</span> </ng-template> - {{r.publishedAt | timeAgo}} </p> 
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        </ng-container>
+                    </div>
+                    
+                   
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="recent-posts">
+                    <h5>Recent Posts</h5>
+                    <div>
+                        <img src="https://www.westminster-abbey.org/media/4328/events.jpg?anchor=center&mode=crop&width=1024&height=512&rnd=132017882970000000" alt="...">
+                        <div>
+                            <p>
+                                Lots of people get rich Knowing nothing more than that.
+                            </p>
+                            <span>
+                                7:00 am on Feb 28
+                            </span>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div>
+                        <img src="https://poetsandquants.com/wp-content/uploads/sites/5/2018/03/2018-CentreCourt-London-MBA-Festival.jpeg" alt="...">
+                        <div>
+                            <p>
+                                Lots of people get rich Knowing nothing more than that.
+                            </p>
+                            <span>
+                                7:00 am on Feb 28
+                            </span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <img src="https://i.ytimg.com/vi/cMXhcZTCF34/maxresdefault.jpg" alt="...">
+                        <div>
+                            <p>
+                                Lots of people get rich Knowing nothing more than that.
+                            </p>
+                            <span>
+                                7:00 am on Feb 28
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- df -->
+
+                <div class="most-popular">
+                    <h5>5 Most popular</h5>
+                    <div>
+                        <div class="indexNum"><span>1</span></div>
+                        <div>
+                            <p>The World's Youngest Billonaire is Just 24 and She's From Kong.</p>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div>
+                        <div class="indexNum"><span>2</span></div>
+                        <div>
+                            <p>The World's Youngest Billonaire is Just 24 and She's From Kong.</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <div class="indexNum"><span>3</span></div>
+                        <div>
+                            <p>The World's Youngest Billonaire is Just 24 and She's From Kong.</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <div class="indexNum"><span>4</span></div>
+                        <div>
+                            <p>The World's Youngest Billonaire is Just 24 and She's From Kong.</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <div class="indexNum"><span>5</span></div>
+                        <div>
+                            <p>The World's Youngest Billonaire is Just 24 and She's From Kong.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+
+                <div class="newSetter">
+                    <h5>Good News NewSitter</h5>
+                    <p>Subscribe to our email newSitter for good news, sent our every Monday. </p>
+                    <div>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Email" required>
+                                <button class="btn btn-primary" type="submit">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="follow-us">
+                  <h5>Follow Us</h5>
+                  <ul>
+                      <li class="facebook"><i class="fa fa-facebook"></i></li>
+                      <li class="twitter"><i class="fa fa-twitter"></i></li>
+                      <li class="google"><i class="fa fa-google-plus"></i></li>
+                      <li class="youtube"><i class="fa fa-youtube"></i></li>
+                      <li class="linkedin"><i class="fa fa-linkedin"></i></li>
+                      <li class="tumblr"><i class="fa fa-tumblr"></i></li>
+                  </ul>
+                </div>
+
+            </div>
+        </div>
+        <hr class="secHr">
+        <div class="row">
+            <div class="container-fluid trending">
+                <h3>Trending</h3>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="items">
+                            <img src="https://fcclainc.org/sites/default/files/star-events.jpg" alt="">
+                            <div class="body">
+                                <span>October 6 ,2013</span>
+                                <p>This pays especially well in technology, where you earn a premium for working fast. </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p>Here is a brief sketch of the economic proposition. </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p>Startups are not magic. </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p> Like all back-of-the-envelope calculations, this one has a lot of wiggle room. </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p>  Imagine the stress of working for the Post Office for fifty years. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="items">
+                            <img src="https://www.wayne.k12.ms.us/images/gallery/_full_/docs/building/7/culinary%20arts%20fccla/img_7026.jpg?id=17860&thumbwidth=100&fullwidth=600" alt="">
+                            <div class="body">
+                                <span>October 6 ,2013</span>
+                                <p> Lots of people get rich knowing nothing more than that.  </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p>If you're a good hacker in your mid twenties, you can get a job paying about $80,000 per year. </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p>They don't change the laws of wealth creation. </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p> I wouldn't try to defend the actual numbers. But I stand by the structure of the calculation. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="items">
+                            <img src="https://mnfccla.org/wp-content/uploads/2016/11/SAM_0982-1024x683.jpg" alt="">
+                            <div class="body">
+                                <span>October 6 ,2013</span>
+                                <p>I think your best bet would be to start or join a startup.  </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p>You could probably work twice as many hours as a corporate employee.  </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p>Imagine the stress of working for the Post Office for fifty years. In a startup you compress all this stress into three or four years. </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p> This pays especially well in technology, where you earn a premium for working fast. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="items">
+                            <img src="https://www.g-i-events.com/s/img/emotionheader31081586.jpg?1536056459.920px.400px" alt="">
+                            <div class="body">
+                                <span>October 6 ,2013</span>
+                                <p>That's been a reliable way to get rich for hundreds of years.  </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p>Like all back-of-the-envelope calculations, this one has a lot of wiggle room.  </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p>Three million? How do I get to be a billionaire, like Bill Gates?  </p>
+                            </div>
+                            <div class="body">
+                                <span>October 6, 2013</span>
+                                <p>  If $3 million a year seems high to some people, it will seem low to others.  </p>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+<div class="topbtn">   <i class="fa fa-arrow-up"></i> </div>

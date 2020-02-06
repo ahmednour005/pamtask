@@ -1,0 +1,49 @@
+.row{
+    padding: 0;
+    margin: 0;
+}
+.header-nav{
+    width: 100%;
+    height: 55px;
+    background-color: #c01e33;
+    color:#FFF;
+    padding: 0 60px;
+    line-height: 55px;
+}
+.header-nav .logo{
+    float: left;
+}
+.header-nav .logo a{
+    color:#FFF;
+    text-decoration: none;
+}
+.header-nav .logo span{
+    font-size: 25px;
+    font-weight: 700;
+
+}
+.header-nav .logo .sup{
+    font-size: 12px;
+    float: right;
+    margin-top: -4px;
+}
+.header-nav .links{
+    float: right;
+}
+.header-nav .links button{
+    padding: 0 15px;
+    color: red;
+    background: #FFF;
+    border: 0;
+    height: 31px;
+    line-height: 25px;
+}
+.header-nav .links button:hover{
+    color:#c01e33;
+}
+
+@media (max-width:360px){
+    .header-nav{
+        padding: 0 20px;
+    }  
+}
